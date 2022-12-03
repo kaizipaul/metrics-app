@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import DetailsPage from '../components/detailsPage';
-import store from '../redux/configureStore';
+import store from '../Redux/configureStore';
 
 describe('Character Details', () => {
   test('Render character details page', () => {

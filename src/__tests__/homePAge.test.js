@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import HomePage from '../components/homePage';
-import store from '../redux/configureStore';
+import store from '../Redux/configureStore';
 import '@testing-library/jest-dom';
 
 describe('home page rendering', () => {

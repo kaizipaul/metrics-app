@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import Navbar from '../components/navbar';
-import store from '../redux/configureStore';
+import Navbar from '../components/navBar';
+import store from '../Redux/configureStore';
 import '@testing-library/jest-dom';
 
 describe('navbar rendering', () => {

@@ -1,4 +1,4 @@
-import reducer from '../redux/homePage/homePage';
+import reducer from '../Redux/homePage/homePage';
 
 const mockStore = {
   character: [

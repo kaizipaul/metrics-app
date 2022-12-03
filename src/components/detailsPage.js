@@ -9,7 +9,6 @@ import loadingDetails from '../logo/loading.gif';
 
 const detailsPage = () => {
   const details = useSelector((state) => state.details);
-  console.log(details);
   const id = useParams();
   const dispatch = useDispatch();
 

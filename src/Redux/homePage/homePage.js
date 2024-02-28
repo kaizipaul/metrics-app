@@ -4,6 +4,11 @@ const apiUrl = 'https://rickandmortyapi.com/api/character/';
 
 export const initialState = [];
 
+// TO DO
+// 1. remove randomArray function
+// 2. add actions to favorite and unfav characters
+// 3. add the new actions to homePage.jsx
+
 export const getCharacter = createAsyncThunk('home/getCharacter',
   async () => {
     const randomArray = Array.from({ length: 25 }, () => Math.floor(Math.random() * 800));

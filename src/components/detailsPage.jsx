@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaCircle } from 'react-icons/fa';
+import { Spinner } from '@chakra-ui/react';
 import {
   getDetails, initialState,
 } from '../Redux/detailsPage/detailsPage';
-import loadingDetails from '../logo/loading.gif';
 
 const detailsPage = () => {
   const details = useSelector((state) => state.details);
@@ -20,7 +20,7 @@ const detailsPage = () => {
     <div className="flex flex-col gap-4">
       {details === initialState ? (
         <div className="flex flex-col items-center justify-center gap-2 py-4">
-          <img src={loadingDetails} alt="loading" className="w-[60%]" />
+          <Spinner />
           <p>Loading...</p>
         </div>
       ) : (

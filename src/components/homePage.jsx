@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Spinner } from '@chakra-ui/react';
 import { getCharacter, initialState } from '../Redux/homePage/homePage';
 import CharacterCard from './characterCard';
-import DetailsPage from './detailsPage';
+// import DetailsPage from './detailsPage';
 import empty from '../logo/empty.png';
-import loading from '../logo/loading.gif';
-
+import TabSection from './tabSection';
+//  TO DO
+//  1. install chakraUI and import tabs (done✅)
+//  2. add new actions from homePage.js reducer
+//  3. filter through the faved characters
+//  4. if fav list is empty, generate 5 random characters which a user can choose from
 const homePage = () => {
-  const [input, setInput] = useState('');
   const characters = useSelector((state) => state.character);
   const dispatch = useDispatch();
 
@@ -21,28 +23,20 @@ const homePage = () => {
     dispatch(getCharacter());
   };
 
-  const filter = characters.filter((char) => char.name.toLowerCase().includes(input.toLowerCase()));
-
   return (
-    <div className="px-4 py-12">
-      <div className="flex justify-center items-center gap-4 p-2">
-        <FaSearch />
-        <input type="text" placeholder="search for character" className="rounded-md p-[5px] bg-sky-600 text-sky-200 placeholder:text-sky-200" onChange={(e) => setInput(e.target.value)} />
-      </div>
-
+    <div className="px-4 py-24">
+      <TabSection />
       {characters === initialState ? (
         <div className="flex flex-col items-center justify-center gap-2 py-4">
-          <img src={loading} alt="loading" className="w-[30%]" />
+          <Spinner color="green" size="xl" thickness="4px" />
           <p>Loading...</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-1 gap-4 lg:grid-cols-2 gap-4 p-6">
-          {filter.map((char) => (
-            <Link className="links" to={`/details/${char.id}`} element={<DetailsPage key={char.id} />} key={char.id}>
-              <CharacterCard char={char} />
-            </Link>
+          {characters.map((char) => (
+            <CharacterCard key={char.id} char={char} />
           ))}
-          {filter.length === 0
+          {characters.length === 0
           && (
           <div className="flex flex-col items-center">
             <img src={empty} alt="empty" className="w-[50%]" />

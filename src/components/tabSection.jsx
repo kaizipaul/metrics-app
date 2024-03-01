@@ -9,7 +9,6 @@ const TabSection = () => (
       <TabList>
         <Tab>Characters</Tab>
         <Tab>Locations</Tab>
-        <Tab>Episodes</Tab>
       </TabList>
       <TabPanels>
         <TabPanel />

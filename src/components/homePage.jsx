@@ -8,10 +8,12 @@ import empty from '../logo/empty.png';
 import TabSection from './tabSection';
 //  TO DO
 //  1. install chakraUI and import tabs (done✅)
-//  2. add new actions from homePage.js reducer
-//  3. filter through the faved characters
+//  2. add new actions from homePage.js reducer (done)
+//  3. filter through the faved characters (done)
 //  4. if fav list is empty, generate 5 random characters which a user can choose from
 const homePage = () => {
+  // useSelector is a hook provided by the react-redux library
+  // allows data to be extracted from the redux store
   const characters = useSelector((state) => state.character);
   const dispatch = useDispatch();
 

@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ColorModeScript } from '@chakra-ui/react';
 import App from './App';
 import store from './Redux/configureStore';
+import theme from './theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <App />
       </Provider>
     </BrowserRouter>

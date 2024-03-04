@@ -6,8 +6,8 @@ export const initialState = [];
 
 // TO DO
 // 1. remove randomArray function
-// 2. add actions to favorite and unfav characters
-// 3. add the new actions to homePage.jsx
+// 2. add actions to favorite and unfav characters (done)
+// 3. add the new actions to homePage.jsx (done)
 
 export const getCharacter = createAsyncThunk('home/getCharacter',
   async () => {
@@ -25,12 +25,6 @@ export const getCharacter = createAsyncThunk('home/getCharacter',
     }));
     return characterData;
   });
-
-// TODO 1/03/24
-// 1. First go cut your hair
-// 2. Make this slice work
-// 3. export the actions to CharacterCard
-// 4. in the function add an if statement to check if the id matches the action
 
 export const characterSlice = createSlice({
   name: 'character',

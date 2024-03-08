@@ -7,6 +7,7 @@ import {
   Card, CardBody, CardFooter, Heading, Badge, Stack, Image, Divider, Button, ButtonGroup, Skeleton,
 } from '@chakra-ui/react';
 import { InfoOutlineIcon, PlusSquareIcon, CheckCircleIcon } from '@chakra-ui/icons';
+// actions from details reducer
 import { addToCollection, removeFromCollection } from '../Redux/homePage/homePage';
 // import loadingpic from '../logo/loading.gif';
 

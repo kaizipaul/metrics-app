@@ -1,19 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { SunIcon, AddIcon, ExternalLinkIcon } from '@chakra-ui/icons';
+import { AddIcon, ExternalLinkIcon, MoonIcon } from '@chakra-ui/icons';
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   useColorMode,
+  Button,
+  IconButton,
 } from '@chakra-ui/react';
+import { BsSunFill } from 'react-icons/bs';
 
 const NavBar = () => {
-  const { toggleColorMode } = useColorMode();
+  const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <nav className="fixed z-10 w-full flex justify-between items-center p-4 bg-green-200/90 backdrop-blur-sm shadow-md">
+    <nav className="fixed z-10 w-full flex justify-between items-center p-4 bg-green-200 shadow-md">
       <div className="flex items-center gap-2">
         <div>
           <Menu>
@@ -36,7 +39,12 @@ const NavBar = () => {
         </div>
       </div>
       <div className="flex gap-4">
-        <SunIcon boxSize={5} onClick={toggleColorMode} />
+        {colorMode === 'light' && (
+        <Button as={IconButton} colorScheme="blackAlpha" variant="ghost" icon={<MoonIcon />} onClick={toggleColorMode} />
+        )}
+        {colorMode === 'dark' && (
+          <Button as={IconButton} icon={<BsSunFill />} colorScheme="white" variant="ghost" onClick={toggleColorMode} />
+        )}
       </div>
     </nav>
   );

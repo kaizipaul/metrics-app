@@ -32,7 +32,7 @@ const characterCard = (props) => {
   }, []);
 
   return (
-    <Card maxW="sm">
+    <Card maxW="sm" borderRadius="lg" variant="outline">
       <CardBody>
         <Skeleton isLoaded={!loading} borderRadius="lg">
           <Image
@@ -41,19 +41,23 @@ const characterCard = (props) => {
             alt="character"
           />
         </Skeleton>
-        <Stack mt="6" spacing="3">
+        <Stack mt="6" spacing="3" direction="row">
           <Heading size="md">
-            {char.name}
+            <p>
+              {char.name}
+            </p>
+          </Heading>
+          <p>
             {char.status === 'Alive' && (
-            <Badge colorScheme="green" ml="2">Alive</Badge>
+              <Badge colorScheme="green" ml="2">Alive</Badge>
             )}
             {char.status === 'unknown' && (
-            <Badge ml="2">Unknown</Badge>
+              <Badge ml="2">Unknown</Badge>
             )}
             {char.status === 'Dead' && (
-            <Badge colorScheme="red" ml="2">Dead</Badge>
+              <Badge colorScheme="red" ml="2">Dead</Badge>
             )}
-          </Heading>
+          </p>
         </Stack>
       </CardBody>
       <Divider />
